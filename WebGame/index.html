@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学園恋愛シミュレーター</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- タイトル画面 -->
+    <div id="title-screen" class="screen">
+        <div class="title-container">
+            <h1 class="game-title">学園恋愛シミュレーター</h1>
+            <p class="subtitle">〜新しい学校生活の始まり〜</p>
+            <div class="menu-buttons">
+                <button class="menu-btn" onclick="startNewGame()">はじめから</button>
+                <button class="menu-btn" onclick="loadGame()">つづきから</button>
+                <button class="menu-btn" onclick="showGallery()">ギャラリー</button>
+                <button class="menu-btn" onclick="showSettings()">設定</button>
+            </div>
+            <p class="version">Ver 1.0</p>
+        </div>
+    </div>
+
+    <!-- ゲーム画面 -->
+    <div id="game-screen" class="screen" style="display: none;">
+        <!-- ステータスバー -->
+        <div class="status-bar">
+            <div class="day-info">
+                <span id="current-day">Day 1</span>
+                <span id="current-period">朝</span>
+            </div>
+            <div class="quick-menu">
+                <button onclick="quickSave()">Q.Save</button>
+                <button onclick="quickLoad()">Q.Load</button>
+                <button onclick="openMenu()">Menu</button>
+            </div>
+        </div>
+
+        <!-- メイン表示エリア -->
+        <div class="main-area">
+            <!-- キャラクター表示 -->
+            <div class="character-display">
+                <div id="character-image" class="character-sprite"></div>
+            </div>
+
+            <!-- 背景 -->
+            <div id="background" class="background"></div>
+
+            <!-- テキストボックス -->
+            <div class="text-box">
+                <div class="speaker-name" id="speaker-name">???</div>
+                <div class="dialogue-text" id="dialogue-text">
+                    ようこそ、学園恋愛シミュレーターへ！
+                </div>
+                <div class="next-indicator" id="next-indicator">▼</div>
+            </div>
+
+            <!-- 選択肢 -->
+            <div id="choices-container" class="choices-container" style="display: none;">
+            </div>
+        </div>
+
+        <!-- 好感度表示 -->
+        <div class="affection-display" id="affection-display">
+            <h3>好感度</h3>
+            <div id="affection-bars"></div>
+        </div>
+    </div>
+
+    <!-- セーブ/ロード画面 -->
+    <div id="save-load-screen" class="screen" style="display: none;">
+        <div class="modal-content">
+            <h2 id="save-load-title">セーブ</h2>
+            <div class="save-slots" id="save-slots">
+                <!-- セーブスロットは動的に生成 -->
+            </div>
+            <button class="close-btn" onclick="closeSaveLoad()">閉じる</button>
+        </div>
+    </div>
+
+    <!-- ギャラリー画面 -->
+    <div id="gallery-screen" class="screen" style="display: none;">
+        <div class="gallery-container">
+            <h2>ギャラリー</h2>
+            <div class="gallery-tabs">
+                <button class="tab-btn active" onclick="showGalleryTab('cg')">CG</button>
+                <button class="tab-btn" onclick="showGalleryTab('endings')">エンディング</button>
+                <button class="tab-btn" onclick="showGalleryTab('music')">BGM</button>
+            </div>
+            <div id="gallery-content" class="gallery-content">
+                <!-- ギャラリーコンテンツは動的に生成 -->
+            </div>
+            <button class="close-btn" onclick="closeGallery()">タイトルへ</button>
+        </div>
+    </div>
+
+    <!-- 設定画面 -->
+    <div id="settings-screen" class="screen" style="display: none;">
+        <div class="settings-container">
+            <h2>設定</h2>
+            <div class="settings-content">
+                <div class="setting-item">
+                    <label>テキスト速度</label>
+                    <input type="range" id="text-speed" min="1" max="10" value="5">
+                    <span id="text-speed-value">5</span>
+                </div>
+                <div class="setting-item">
+                    <label>オートプレイ速度</label>
+                    <input type="range" id="auto-speed" min="1" max="10" value="5">
+                    <span id="auto-speed-value">5</span>
+                </div>
+                <div class="setting-item">
+                    <label>BGM音量</label>
+                    <input type="range" id="bgm-volume" min="0" max="100" value="50">
+                    <span id="bgm-volume-value">50</span>
+                </div>
+                <div class="setting-item">
+                    <label>SE音量</label>
+                    <input type="range" id="se-volume" min="0" max="100" value="50">
+                    <span id="se-volume-value">50</span>
+                </div>
+                <div class="setting-item">
+                    <label>フルスクリーン</label>
+                    <input type="checkbox" id="fullscreen">
+                </div>
+            </div>
+            <button class="close-btn" onclick="closeSettings()">戻る</button>
+        </div>
+    </div>
+
+    <!-- ポップアップ -->
+    <div id="popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <p id="popup-message"></p>
+            <button onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <!-- スクリプト読み込み -->
+    <script src="characters.js"></script>
+    <script src="scenarios.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

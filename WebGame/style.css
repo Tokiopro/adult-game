@@ -1,0 +1,530 @@
+/* リセットCSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* スクリーン共通 */
+.screen {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* タイトル画面 */
+#title-screen {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.title-container {
+    text-align: center;
+    animation: fadeIn 1s ease-in;
+}
+
+.game-title {
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from { text-shadow: 3px 3px 6px rgba(0,0,0,0.3); }
+    to { text-shadow: 3px 3px 20px rgba(255,255,255,0.8); }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 50px;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.menu-btn {
+    width: 250px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    background: white;
+    color: #764ba2;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.menu-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.version {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+}
+
+/* ゲーム画面 */
+#game-screen {
+    background: #2c3e50;
+    flex-direction: column;
+}
+
+/* ステータスバー */
+.status-bar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 100;
+}
+
+.day-info {
+    color: white;
+    font-size: 1.1rem;
+}
+
+.day-info span {
+    margin-right: 20px;
+}
+
+.quick-menu button {
+    padding: 5px 15px;
+    margin-left: 10px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.quick-menu button:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* メインエリア */
+.main-area {
+    width: 100%;
+    height: calc(100% - 50px);
+    position: relative;
+    margin-top: 50px;
+}
+
+/* 背景 */
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.bg-classroom { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.bg-rooftop { background: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%); }
+.bg-library { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+.bg-cafeteria { background: linear-gradient(135deg, #f9d423 0%, #ff4e50 100%); }
+.bg-courtyard { background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%); }
+
+/* キャラクター表示 */
+.character-display {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.character-sprite {
+    width: 300px;
+    height: 400px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: characterFloat 3s ease-in-out infinite;
+}
+
+@keyframes characterFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* キャラクター別スタイル */
+.char-misaki { background: linear-gradient(135deg, #ff6b9d 0%, #feca57 100%); }
+.char-yukino { background: linear-gradient(135deg, #66d9ef 0%, #96ceb4 100%); }
+.char-ayame { background: linear-gradient(135deg, #c9b3ff 0%, #ffeaa7 100%); }
+
+/* テキストボックス */
+.text-box {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 900px;
+    background: rgba(0,0,0,0.85);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 10;
+}
+
+.speaker-name {
+    color: #ff6b9d;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.dialogue-text {
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    min-height: 80px;
+}
+
+.next-indicator {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    color: white;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* 選択肢 */
+.choices-container {
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 11;
+}
+
+.choice-btn {
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+    min-width: 400px;
+}
+
+.choice-btn:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateX(10px);
+}
+
+/* 好感度表示 */
+.affection-display {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    padding: 15px;
+    min-width: 200px;
+    z-index: 99;
+}
+
+.affection-display h3 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.affection-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 10px;
+}
+
+.char-name {
+    color: white;
+    font-size: 0.9rem;
+    width: 60px;
+}
+
+.bar-container {
+    flex: 1;
+    height: 20px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b9d 0%, #feca57 100%);
+    transition: width 0.5s ease;
+}
+
+.bar-value {
+    color: white;
+    font-size: 0.9rem;
+    width: 30px;
+    text-align: right;
+}
+
+/* 好感度ポップアップ */
+.affection-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    z-index: 1000;
+    animation: popupFade 2s forwards;
+}
+
+@keyframes popupFade {
+    0% { opacity: 0; transform: translate(-50%, -40%); }
+    20% { opacity: 1; transform: translate(-50%, -50%); }
+    80% { opacity: 1; transform: translate(-50%, -50%); }
+    100% { opacity: 0; transform: translate(-50%, -60%); }
+}
+
+/* セーブ/ロード画面 */
+#save-load-screen {
+    background: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 800px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.save-slots {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.save-slot {
+    padding: 15px;
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: space-between;
+}
+
+.save-slot:hover {
+    background: #e9ecef;
+    border-color: #764ba2;
+}
+
+/* ギャラリー画面 */
+.gallery-container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 900px;
+    max-height: 700px;
+}
+
+.gallery-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    background: #f8f9fa;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    background: #764ba2;
+    color: white;
+}
+
+.gallery-content {
+    min-height: 400px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* 設定画面 */
+.settings-container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 600px;
+}
+
+.settings-content {
+    margin-bottom: 20px;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.setting-item label {
+    width: 150px;
+}
+
+.setting-item input[type="range"] {
+    flex: 1;
+}
+
+.setting-item span {
+    width: 40px;
+    text-align: center;
+}
+
+/* 閉じるボタン */
+.close-btn {
+    padding: 10px 30px;
+    background: #764ba2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.close-btn:hover {
+    background: #5a3785;
+}
+
+/* ポップアップ */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.popup-content p {
+    margin-bottom: 20px;
+}
+
+.popup-content button {
+    padding: 10px 30px;
+    background: #764ba2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* エフェクト */
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.flash {
+    animation: flash 0.3s;
+}
+
+@keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .game-title { font-size: 2.5rem; }
+    .menu-btn { width: 200px; }
+    .text-box { width: 95%; }
+    .choice-btn { min-width: 300px; }
+    .save-slots { grid-template-columns: 1fr; }
+}

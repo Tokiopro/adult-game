@@ -1,0 +1,49 @@
+# Unity Package Manager - 必要パッケージリスト
+# Window > Package Manager で以下をインストール
+
+## 必須パッケージ (Unity Registry)
+- Universal RP (com.unity.render-pipelines.universal) - 最新版
+- TextMeshPro (com.unity.textmeshpro) - 最新版
+- Cinemachine (com.unity.cinemachine) - 最新版
+- Post Processing (com.unity.postprocessing) - 最新版
+- Timeline (com.unity.timeline) - 最新版
+- Animation Rigging (com.unity.animation.rigging) - 最新版
+- Input System (com.unity.inputsystem) - 最新版
+
+## ビジュアルノベル機能
+- 2D Sprite (com.unity.2d.sprite) - 最新版
+- UI Toolkit (com.unity.ui) - 最新版
+
+## エフェクト関連
+- Visual Effect Graph (com.unity.visualeffectgraph) - 最新版
+- Shader Graph (com.unity.shadergraph) - 最新版
+- Particle System - ビルトイン
+
+## オーディオ
+- Unity Audio - ビルトイン
+
+## ビルド関連
+- Addressables (com.unity.addressables) - 最新版
+- Localization (com.unity.localization) - 最新版
+
+## 開発支援
+- ProBuilder (com.unity.probuilder) - 最新版
+- ProGrids (com.unity.progrids) - 最新版
+
+## 推奨アセット (Asset Store - 無料)
+1. Free Classroom Pack - 教室環境
+2. School Supplies - 学校小物
+3. Anime Character Model - キャラクターベース
+4. Japanese School Textures - テクスチャ
+5. DOTween (HOTween v2) - アニメーション補助
+
+## インストール手順
+1. Unity Editor を開く
+2. Window > Package Manager
+3. 左上の "+" ボタン > "Add package from git URL..."
+4. 各パッケージ名を入力してインストール
+
+## 注意事項
+- Universal RPを最初にインストール
+- プロジェクト設定でURPアセットを設定
+- Input Systemインストール後は再起動が必要

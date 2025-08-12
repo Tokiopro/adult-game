@@ -1,0 +1,187 @@
+# ===========================
+# Blender関連
+# ===========================
+# Blenderバイナリ（大容量）
+blender-4.2.3-linux-x64/
+blender-*.tar.xz
+*.blend1
+*.blend2
+*.blend@
+*.blend#
+
+# ===========================
+# Unity関連
+# ===========================
+# Unity生成ファイル
+UnityProject/[Ll]ibrary/
+UnityProject/[Tt]emp/
+UnityProject/[Oo]bj/
+UnityProject/[Bb]uild/
+UnityProject/[Bb]uilds/
+UnityProject/[Ll]ogs/
+UnityProject/[Uu]ser[Ss]ettings/
+UnityProject/[Mm]emoryCaptures/
+UnityProject/[Rr]ecordings/
+
+# Unity Asset Store
+UnityProject/[Aa]ssets/AssetStoreTools*
+
+# Unity自動生成ファイル
+UnityProject/*.pidb
+UnityProject/*.booproj
+UnityProject/*.svd
+UnityProject/*.pdb
+UnityProject/*.mdb
+UnityProject/*.opendb
+UnityProject/*.VC.db
+UnityProject/*.unitypackage
+UnityProject/*.apk
+UnityProject/*.aab
+UnityProject/*.app
+
+# Unity Metaファイル（必要に応じて）
+# *.meta
+
+# Unity Hub
+unity-hub.AppImage
+unity-hub.deb
+Unity Hub.AppImage
+UnityHub.AppImage
+
+# ===========================
+# ビルド出力
+# ===========================
+Builds/
+Build/
+Output/
+Releases/
+*.exe
+*.app
+*.dmg
+*.pkg
+
+# ===========================
+# エディタ関連
+# ===========================
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# ===========================
+# OS生成ファイル
+# ===========================
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===========================
+# バックアップ・一時ファイル
+# ===========================
+*.bak
+*.backup
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.~lock.*
+
+# ===========================
+# ログファイル
+# ===========================
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===========================
+# パッケージマネージャー
+# ===========================
+node_modules/
+npm-debug.log
+yarn.lock
+package-lock.json
+
+# ===========================
+# プロジェクト固有の除外
+# ===========================
+# 大容量アーカイブ
+*.tar
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.zip
+*.rar
+*.7z
+
+# 実行ファイル
+*.sh
+!setup_*.sh
+!install_*.sh
+!build_*.sh
+
+# プライベート設定
+private/
+config.local.json
+.env
+.env.local
+.env.*.local
+
+# ===========================
+# Webゲーム関連（保持）
+# ===========================
+# WebGame/フォルダは含める
+!WebGame/
+!WebGame/**
+
+# BlenderScripts/フォルダは含める
+!BlenderScripts/
+!BlenderScripts/**
+
+# UnityProject/Assets/Scripts/は含める
+!UnityProject/Assets/
+!UnityProject/Assets/**
