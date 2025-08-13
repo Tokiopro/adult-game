@@ -6,7 +6,8 @@
       "Bash(sudo apt:*)",
       "Bash(sudo apt install:*)",
       "Bash(tar:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(python3:*)"
     ],
     "deny": [],
     "ask": []
