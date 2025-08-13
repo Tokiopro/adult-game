@@ -185,3 +185,90 @@ config.local.json
 # UnityProject/Assets/Scripts/は含める
 !UnityProject/Assets/
 !UnityProject/Assets/**
+
+# ===========================
+# 大容量ファイル（追加除外）
+# ===========================
+# Unity Hub（大容量）
+unity-hub.AppImage
+Unity\ Hub.AppImage
+UnityHub.AppImage
+
+# Blender（大容量アーカイブ）
+blender.tar.xz
+blender-*.tar.xz
+
+# ===========================
+# Claude AI関連
+# ===========================
+.claude/
+.claude/**
+
+# ===========================
+# プロジェクト出力（追加）
+# ===========================
+# パッケージ出力
+Packages/
+Installers/
+GameConfig/
+version.txt
+build.log
+
+# スクリーンショット
+Screenshots/
+screenshot_*.png
+screenshot_*.jpg
+
+# ===========================
+# Unity固有（追加除外）
+# ===========================
+# Unity Analytics
+UnityProject/[Uu]nityGenerated/
+UnityProject/[Aa]ssets/[Ss]treamingAssets/aa*
+UnityProject/[Aa]ssets/[Ss]treamingAssets/aa.meta
+
+# Unity Addressables
+UnityProject/[Aa]ssets/[Aa]ddressableAssetsData/
+UnityProject/[Aa]ssets/[Aa]ddressableAssetsData.meta
+
+# Unity Test Framework
+UnityProject/[Aa]ssets/[Tt]ests/
+UnityProject/[Aa]ssets/[Tt]ests.meta
+
+# Unity Package Manager Cache
+UnityProject/Packages/packages-lock.json
+
+# Unity Local Settings
+UnityProject/ProjectSettings/Packages/
+
+# ===========================
+# Blender追加除外
+# ===========================
+# Blenderジャーナル
+*.blend-journal
+
+# Blender出力
+render_output/
+*.blend-journal
+
+# Blenderアドオン
+scripts/addons_extern/
+
+# ===========================
+# 開発ツール追加
+# ===========================
+# Inno Setup
+*.iss
+
+# Visual Studio追加
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# 実行時設定
+config.local.json
+local_settings.json
+
+# デバッグ出力
+debug_output/
+test_results/

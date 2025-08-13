@@ -1,0 +1,4 @@
+repository "AdultGame/AdultGame@15669604933840@cloud"
+  path "/"
+    br "/main"
+    co "/main"
